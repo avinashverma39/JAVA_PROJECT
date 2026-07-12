@@ -11,7 +11,7 @@ public class BankManagementSystem {
     static String mobile = "";
     static String nominee = "";
 
-    static int accountNumber = 1001;
+    static int accountNumber = 1002525251;
     static int pin = 1234;
 
     static double balance = 0;
