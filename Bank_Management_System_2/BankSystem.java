@@ -55,7 +55,7 @@ class Account implements Serializable {
 class BankData implements Serializable {
     private static final long serialVersionUID = 1L;
     List<Account> accounts = new ArrayList<>();
-    int nextAccNo = 1001;
+    int nextAccNo = 100000001;
 }
 
 public class BankSystem {
@@ -79,7 +79,8 @@ public class BankSystem {
     static void saveData() {
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
             out.writeObject(data);
-        } catch (IOException e) {
+        } 
+        catch (IOException e) {
             System.out.println("Error: could not save data to " + FILE_NAME + " (" + e.getMessage() + ")");
         }
     }
