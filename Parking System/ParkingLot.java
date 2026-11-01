@@ -255,7 +255,7 @@ public class ParkingLot {
                     System.out.print("Enter vehicle number: ");
                     String plate = sc.nextLine().trim().toUpperCase();
                     Ticket t = lot.parked.get(plate);
-                    if (t == null) { lot.unpark(plate); break; }   // prints "not found"
+                    if (t == null) { lot.unpark(plate); break; } 
                     System.out.print("Minutes parked (press Enter to use the real clock): ");
                     String m = sc.nextLine().trim();
                     if (m.isEmpty()) {
@@ -282,19 +282,19 @@ public class ParkingLot {
         ParkingLot lot = new ParkingLot(3, null);
         LocalDateTime t0 = LocalDateTime.of(2026, 10, 29, 9, 0);
 
-        lot.park("KA01AB1234", t0);                   // slot 1
-        lot.park("MH12XY9999", t0.plusMinutes(5));    // slot 2
-        lot.park("DL08CD5555", t0.plusMinutes(10));   // slot 3
-        lot.park("TN09ZZ0001", t0.plusMinutes(15));   // full
+        lot.park("KA01AB1234", t0);                  
+        lot.park("MH12XY9999", t0.plusMinutes(5));    
+        lot.park("DL08CD5555", t0.plusMinutes(10));   
+        lot.park("TN09ZZ0001", t0.plusMinutes(15));  
         lot.status();
 
-        lot.unpark("MH12XY9999", t0.plusMinutes(125)); // 2h -> Rs.60, slot 2 freed
+        lot.unpark("MH12XY9999", t0.plusMinutes(125)); 
         lot.status();
 
-        lot.park("UP16EF7777", t0.plusMinutes(130));  // reuses slot 2 (nearest free)
-        lot.unpark("KA01AB1234", t0.plusMinutes(30)); // <1h -> Rs.40, slot 1 freed
-        lot.park("GJ05GH4321", t0.plusMinutes(140));  // gets slot 1
-        lot.unpark("XX00XX0000");                     // not found
+        lot.park("UP16EF7777", t0.plusMinutes(130)); 
+        lot.unpark("KA01AB1234", t0.plusMinutes(30)); 
+        lot.park("GJ05GH4321", t0.plusMinutes(140));  
+        lot.unpark("XX00XX0000");                     
         lot.status();
     }
 }
